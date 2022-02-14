@@ -126,19 +126,6 @@ app.post('/save', (req, res) => {
   }
 })
 
-app.listen(3000, () => {
-  console.log("Site ativo")
-})
-//background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
-//#990033 COR PARA A SELEÇÃO DO MOUSE
-//LINKS DE IMAGENS
-/*
-https://st2.depositphotos.com/4499099/6644/i/600/depositphotos_66446253-stock-photo-telegraph-machine-morse-code.jpg
-https://media.istockphoto.com/photos/telegraph-picture-id157683170?b=1&k=20&m=157683170&s=170667a&w=0&h=46oVRSkqrwi1Q1JcxdNUhzEFtha8g0Fy5NubQ-wCqvw=
-https://www.cliccamaqua.com.br/images/noticias/img_53982_foto_1_a.jpg
-https://images.freeimages.com/images/large-previews/37f/old-typewriter-and-typist-1167422.jpg */
-/*LINKS PARA ESTUDO
-https://encycolorpedia.pt/cca978
-https://developer.mozilla.org/pt-BR/docs/Web/CSS/box-shadow
-https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_box-shadow
-https://userstyles.org/styles/175290/clean-discordhttps://www.uniftc.edu.br/salvador/home/ */
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
