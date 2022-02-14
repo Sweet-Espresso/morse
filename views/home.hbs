@@ -1,0 +1,266 @@
+    <link rel="stylesheet" href="../public/css/home.css">
+    <div class="bg">
+      <div class="bg-img"></div>
+    </div>
+      <section id='texto-entrada'> 
+        <div class="borda"></div>
+        <p>O tradutor morse mais moderno</p>
+        <div class="entrada-centro">
+        <a type="button" class="btn btn-dark moverMorse" onclick="getFocus('#textarea-code-entry')">Começar agora</a>
+        <a type="button" class="btn btn-danger moverMorse" href="https://morse.withgoogle.com/learn/" >Aprenda morse <i class="fa fa-external-link"></i></a>
+        </div>
+      </section>
+    <section id="center">
+      <div class="borda"></div>
+      <div class="center">
+        <div class="languages">
+          <div class="esconde2">
+            <div class="language-grab"><i class="fa fa-angle-double-right"></i></div>
+          </div>
+            <div class="language" onclick="scrollTexto('1600')">Alfanumérico</div>
+            <div class="language" onclick="scrollTexto('1600')">Morse</div>
+        </div>
+
+        <div class="code">
+            <div class="code-entry">
+                <div class="code-info">
+                    <div class="code-info-div">
+                        <div class="code-entry-language">
+                          <button id="code-entry-language-btn" onclick="scrollTexto('1600')"> </button>
+                        </div>
+                        <div class="code-entry-max"></div>
+                        </div>
+                        <div class="code-info-btn">
+                          <div class='code-info-btn-icons'>
+                            <i class="fa fa-save" aria-label="Salvar" onclick="save('entry')"></i>
+                            <i class="fa fa-share-square" aria-label="Compartilhar"></i>
+                            <i class="fa fa-copy" aria-label="Copiar" onclick="copiar('entry')"></i>
+                            <i class="fa fa-trash" aria-label="Apagar" onclick="clean()"></i>   
+                          </div>
+                        </div>
+                </div>
+                <div class="code-textarea">
+                    <textarea id="textarea-code-entry" type="text" placeholder="Digite o morse ou texto aqui." onkeyup="morse()"></textarea>
+                </div>
+                <div class="code-footer"></div>
+            </div>
+
+            <div class="code-output">
+                <div class="code-info">
+                    <div class="code-info-div">
+                        <div class="code-output-language">
+                          <button id="code-output-language-btn" onclick="scrollTexto('1600')"> </button>
+                        </div>
+                        <div class="code-output-max"></div>
+                        </div>
+                        <div class="code-info-btn">
+                          <div class='code-info-btn-icons'>
+                            <i class="fa fa-save" aria-label="Salvar" onclick="save('output')"></i>
+                            <i class="fa fa-share-square" aria-label="Compartilhar"></i>
+                            <i class="fa fa-copy" aria-label="Copiar" onclick="copiar('output')"></i>
+                            <i class="fa fa-trash" aria-label="Apagar" onclick="clean()"></i>   
+                          </div>
+                        </div>
+                </div>
+                <div class="code-textarea">
+                    <textarea disabled id="textarea-code-output" type="text" placeholder="Decodificação"></textarea>
+                </div>
+                <div class="code-footer"></div>
+            </div>
+
+        </div>
+        <div class="historic">
+          <div class="esconde">
+            <div class="historic-grab"><i class="fa fa-angle-double-right fa-rotate-180"></i></div>
+          </div>
+          <div class="block">
+            <div class="block-body">
+              <div class="block-body-header">
+                Crie uma conta para ter acesso ao histórico
+              </div>
+              <div class="block-body-btn">
+            <button class="entrar" onclick="cadOrLogin('login')">Log in</button>
+            <button class="criar" onclick="cadOrLogin('cad')">Sign up</button>
+            </div>
+            </div>
+          </div>
+            <div class="historic1">
+              <div class="historic1-header">
+                <div class="historic1-header-date">
+                  xxxx-xx-xx
+                </div>
+                <div class="historic-header-btn">
+                  <i class="fa fa-copy" onclick=""></i>
+                  <i class="fa fa-trash" onclick=""></i>  
+                </div>
+              </div>
+              <div class="historic1-body">
+              <div class="historic1-body-header">
+                <div class="historic1-body-header-entry">Alfanumérico</div> 
+                <i class="fa fa-angle-double-right"></i> 
+                <div class="historic1-body-header-output">Morse</div>
+              </div>
+                <div class="historic1-body-texto">
+                  O melhor do morse em um só site
+                </div>
+            </div>
+            </div>
+            <div class="historic1">
+              <div class="historic1-header">
+                <div class="historic1-header-date">
+                  xxxx-xx-xx
+                </div>
+                <div class="historic-header-btn">
+                  <i class="fa fa-copy" onclick=""></i>
+                  <i class="fa fa-trash" onclick=""></i>  
+                </div>
+              </div>
+              <div class="historic1-body">
+              <div class="historic1-body-header">
+                <div class="historic1-body-header-entry">Alfanumérico</div> 
+                <i class="fa fa-angle-double-right"></i> 
+                <div class="historic1-body-header-output">Morse</div>
+              </div>
+                <div class="historic1-body-texto">
+                  O melhor do morse em um só site
+                </div>
+            </div>
+            </div>
+            <div class="historic1">
+              <div class="historic1-header">
+                <div class="historic1-header-date">
+                  xxxx-xx-xx
+                </div>
+                <div class="historic-header-btn">
+                  <i class="fa fa-copy" onclick=""></i>
+                  <i class="fa fa-trash" onclick=""></i>  
+                </div>
+              </div>
+              <div class="historic1-body">
+              <div class="historic1-body-header">
+                <div class="historic1-body-header-entry">Alfanumérico</div> 
+                <i class="fa fa-angle-double-right"></i> 
+                <div class="historic1-body-header-output">Morse</div>
+              </div>
+                <div class="historic1-body-texto">
+                  O melhor do morse em um só site
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section id="center">
+      <div class="borda" id='borda2' ></div>
+      <div class="conteudo">
+        <h2>O código morse</h2>
+        <p>Texto texto texto <span class='destaque' aria-label="Olhar fontes">texto em destaque</span> texto texto texto</p>
+        <p>Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto</p>
+        <p>Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto <span class='destaque' aria-label="Olhar fontes">texto em destaque</span> texto texto texto</p>
+      </div>
+    </section>
+    <section id="center">
+      <div class="borda" id='borda2'></div>
+      <div class="conteudo centro">
+        <div class="texto-centro" id="texto-centro-morse"> Tabela código Morse</div>
+        <table>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>.-</td>
+            <td>B</td>
+            <td>-...</td>
+            <td>C</td>
+            <td>-.-.</td>
+            <td>D</td>
+            <td>-..</td>
+            </tr><tr>
+            <td>E</td>
+            <td>.</td>
+            <td>F</td>
+            <td>..-.</td>
+            <td>G</td>
+            <td>--.</td>
+            <td>H</td>
+            <td>....</td>
+          </tr>
+          <tr>
+            <td>I</td>
+            <td>..</td>
+            <td>J</td>
+            <td>.---</td>
+            <td>K</td>
+            <td>-.-</td>
+            <td>L</td>
+            <td>.-..</td>
+            </tr><tr>
+            <td>M</td>
+            <td>--</td>
+            <td>N</td>
+            <td>-.</td>
+            <td>O</td>
+            <td>---</td>
+            <td>P</td>
+            <td>.--.</td>
+          </tr>
+          <tr>
+            <td>Q</td>
+            <td>--.-</td>
+            <td>R</td>
+            <td>.-.</td>
+            <td>S</td>
+            <td>...</td>
+            <td>T</td>
+            <td>-</td>
+            </tr><tr>
+            <td>U</td>
+            <td>..-</td>
+            <td>V</td>
+            <td>...-</td>
+            <td>W</td>
+            <td>.--</td>
+            <td>X</td>
+            <td>-..-</td>
+          </tr>
+          <tr>
+            <td>Y</td>
+            <td>-.--</td>
+            <td>Z</td>
+            <td>--..</td>
+            <td>Espaço</td>
+            <td>/</td>
+          </tr>
+        </tbody>
+        </table>
+        <div class="texto-centro"> Números </div>
+          <table>
+            <tr>
+              <td>0</td>
+              <td>-----</td>
+              <td>1</td>
+              <td>.----</td>
+              <td>2</td>
+              <td>..---</td>
+              <td>3</td>
+              <td>...--</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>....-</td>
+              <td>5</td>
+              <td>.....</td>
+              <td>6</td>
+              <td>-....</td>
+              <td>7</td>
+              <td>--...</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>---..</td>
+              <td>9</td>
+              <td>----.</td>
+            </tr>
+          </table>
+      </div>
+    </section>
+    <script src="../public/js/home.js"></script>
