@@ -275,6 +275,19 @@ footer {
 .footer-content {
     max-width: 1200px;
     height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.links {
+  display: flex;
+}
+.links a {
+  margin: 10px;
+}
+.links a:hover {
+  cursor: pointer;
 }
 
 @media(max-width: 600px) {
