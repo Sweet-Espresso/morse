@@ -1,6 +1,7 @@
 var erro = document.getElementById('error')
 var success = document.getElementById('success')
 
+//Disponibiliza mensagens autómaticas de erro ou de sucesso
 function msg(e) {
     if (e) {
         erro.style.display = "flex"
