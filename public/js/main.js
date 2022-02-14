@@ -1,10 +1,6 @@
 let drop = document.querySelector('.drop')
 
 // Puxada ao clicar no perfil depois de logado
-function usuario() {
-  
-}
-
 function cadOrLogin(a) {
   drop.style.height = '100vh'
   drop.style.width = '100vw'
@@ -13,6 +9,7 @@ function cadOrLogin(a) {
   metodoCadOrLogin()
 }
 
+//Muda o conteúdo dos botões do dropDown de acordo ao this.mode
 function metodoCadOrLogin() {
     var alterCadLogin = document.querySelectorAll('#drop-form .cad')
     var btnLoginOrCad = document.querySelector('.btn-login-or-cad')
@@ -35,11 +32,12 @@ function metodoCadOrLogin() {
     }
 }
 
+//Altera os inputs que apareceram no dropDown de acordo com o this.mode
 function signinOrCad() {
     this.mode === 'cad' ? signin() : cadastro()
 }
 
-//Só funciona no keyup
+//É puxado a cada keyup nos inputs de cadastro e login, é ele que informa se os valores são válidos ou não
 function validation(a) {
   if(a === 'usuario') {
     let usuarioInp = document.getElementById('usuario-inp')
@@ -105,6 +103,7 @@ function validation(a) {
   }
 }
 
+//Cadastra a conta via fetch
 function cadastro() {
     user = {
         usuario: document.querySelector('#usuario-inp').value,
@@ -129,6 +128,7 @@ function cadastro() {
         .catch(err => msg(err))
 }
 
+//Entra na conta via fetch
 function signin() {
   !this.autoLoginNome ? document.querySelector('#usuario-inp').value : document.querySelector('#usuario-inp').value = this.autoLoginNome
   !this.autoLoginSenha ? document.querySelector('#senha-inp').value : document.querySelector('#senha-inp').value = this.autoLoginSenha
@@ -160,7 +160,8 @@ function signin() {
         .catch(err => msg(err))
 
 }
-//PAREI AQUI
+
+//Limp todos os imputs e se o modo for login remove o dropDown
 function reset() {
     let inputCad = document.querySelectorAll("#drop-form .cad")
     let inputLogin = document.querySelectorAll("#drop-form .login")
@@ -178,16 +179,19 @@ function reset() {
     this.mode !== "login" ? down() : null
 }
 
+//Ativa o dropDown, coloca o modo em login e limpa os inputs do dropDown
 function down() {
   this.mode = 'login'
   drop.style.display = 'none'
   reset()
 }
 
+//Transforma o historico salvo no localStorage em this.userHistorico
 function getUserHistorico() {
   this.userHistorico = JSON.parse(localStorage.getItem('userHistorico'))
 }
 
+//Transforma o historico salvo no localStorage em this.user, carrega os botões ao entrar e caso encontre um usuario arruma os botões para os de logado
 function getUser() {
     this.user = JSON.parse(localStorage.getItem('user'))
     loadBtns(this.user)
@@ -200,6 +204,7 @@ function getUser() {
 }
 }
 
+//Carrega o histórico na div .historic
 function carregaHistorico() {
     if(this.userHistorico) {
         let historico = document.querySelector('.historic')
@@ -237,7 +242,7 @@ function carregaHistorico() {
       }
 }
 
-//Desfaz o login
+//Desfaz o login, limpa os dados e altera os botões para os de não logado
 function signOut() {
     localStorage.removeItem('user')
     localStorage.removeItem('userHistorico')
@@ -341,8 +346,11 @@ function loadBtns(logUser) {
     }
 }
 
-function dropOut() {
-  signOut()
+//FUnção para melhor responsividade, seleciona o input ou textarea alvo e move a tela
+function scrollTexto(y, alvo) {
+  window.scroll(0, Number(y))
+  !alvo ? null : document.querySelector(alvo).focus({preventScroll:false});
 }
 
-  getUser()
+//Procura pelo usuário e ajusta o site ao resultado
+getUser()
