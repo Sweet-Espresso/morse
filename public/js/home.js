@@ -2,8 +2,8 @@ const entry = document.querySelector('#textarea-code-entry')
 const out = document.querySelector('#textarea-code-output')
 const entryLanguage = document.querySelector('#code-entry-language-btn')
 const outLanguage = document.querySelector('#code-output-language-btn')
-entry.value = ""
-out.value = ""
+
+//Limpa os inputs e os coloca nos padrões da página, limpa o this.entryLanguage e limpa o this.outLanguage
 function clean() {
     entry.value = ''
     out.value = ''
@@ -17,16 +17,7 @@ function clean() {
     outLanguage.innerHTML = "Morse"
 }
 
-function scrollTexto(y) {
-
-  window.scroll(0, Number(y))
-}
-
-function getFocus(alvo) {
-  document.querySelector(alvo).focus({preventScroll:false});
-  window.scroll(0, 600)
-}
-
+//Copia o conteúdo de um input ou textarea, caso um parametro b seja dado o conteúdo b será inserido emum input ou textarea e então o código padrão será rodado
 function copiar(a, b) {
   if(b) {
     morse(a)
@@ -43,6 +34,7 @@ function copiar(a, b) {
   }
 }
 
+//Roda a função checkOut(), caso passe pela função checkOut() verifica se o conteúdo foi selecionado, caso passe por tudo salva o histórico via fetch
 function save(a) {
   checkOut()
   if(this.typeCheck) {
@@ -70,8 +62,8 @@ function save(a) {
         .catch(err => msg(err))
   }
 }
-//.reduce((list, sub) => list.concat(sub), [])
 
+//Deleta um histórico via fetch por id
 function deletar(idHistorico) {
   historico = {
         idHistorico: idHistorico
@@ -93,9 +85,10 @@ function deletar(idHistorico) {
         .catch(err => msg(err))
 }
 
+//Verifica se existe um usuário cadastrado, caso não abre o formulário para cadastro
 function checkOut() {
   try {
-    //Caso não haja usuário logado abrirá o formulário de login ou cadastro
+
     if (!this.user) return cadOrLogin('login')
 
     this.typeCheck = "check"
@@ -104,6 +97,7 @@ function checkOut() {
   }
 }
 
+//Transforma texto alfanumérico em morse e vice versa, define this.entryLanguage e this.outLanguage dependendo da linguagem selecionada para a tradução, acha a linguagem automáticamente e traduz o texto de forma automática colocando o valor no input de saída
 function morse(conteudoSelecionado) {
   let i = 0;
     let alpha = " abcdefghijklmnopqrstuvwxyz1234567890".split(""),
@@ -149,4 +143,5 @@ function morse(conteudoSelecionado) {
   out.value = text
 }
 
+//Deixa tudo nos padrões
 clean()
